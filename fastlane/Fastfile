@@ -20,11 +20,12 @@ platform :ios do
   lane :testFastlane do
    gym(
     workspace: "CICD.xcworkspace",
-    configuration:"Debug",
+    configuration:"Release",
     scheme: "CICD",
     silent: true,
     clean: true,
-    skip_archive: true
+    skip_archive: true,
+    output_directory: "build"
   )
 end
 end
