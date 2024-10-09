@@ -21,12 +21,13 @@ jobs:
       - name: Set up Ruby
         uses: ruby/setup-ruby@v1
         with:
-          ruby-version: '3.0'  # Specify the Ruby version to use
+          ruby-version: '2.6.10'  # Specify the Ruby version to use
 
       # Step 3: Install Bundler and Fastlane (if using Gemfile)
       - name: Install Bundler & Fastlane
         run: |
-          bundle install  # Install dependencies using Bundler
+          bundle install 
+          gem install bundler
 
       # Step 4: Build and Test using Fastlane
       - name: Run Fastlane Build
