@@ -31,10 +31,6 @@ jobs:
       # Step 4: Build and Test using Fastlane
       - name: Run Fastlane Build
         run: |
-          bundle exec fastlane build  # Replace 'build' with your Fastlane lane name
+          bundle exec fastlane testFastlane  # Replace 'build' with your Fastlane lane name
 
-      # Optional: Deploy step if needed (e.g., upload to TestFlight)
-      - name: Deploy to TestFlight
-        if: github.event_name == 'push'
-        run: |
-          bundle exec fastlane beta  # Replace 'beta' with your Fastlane lane name for TestFlight
+     
