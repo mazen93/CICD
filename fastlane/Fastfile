@@ -18,6 +18,7 @@ default_platform(:ios)
 platform :ios do
   desc "Description of what the lane does"
   lane :testFastlane do
+   sh("pod install")
    gym(
     workspace: "CICD.xcworkspace",
     configuration:"Release",
@@ -25,7 +26,7 @@ platform :ios do
     silent: true,
     clean: true,
     skip_archive: true,
-    output_directory: "build"
+    output_directory: "./build"
   )
 end
 end
