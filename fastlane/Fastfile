@@ -26,7 +26,10 @@ platform :ios do
     silent: true,
     clean: true,
     skip_archive: true,
-    output_directory: "./build"
+    output_directory: "./build",
+    output_name: "CICD.ipa",
+    export_method: "ad-hoc"
+
   )
 end
 end
