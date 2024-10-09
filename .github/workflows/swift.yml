@@ -27,7 +27,7 @@ jobs:
       - name: Install Bundler & Fastlane
         run: |
           bundle install 
-          gem install bundler
+          gem install bundler -v 2.4.22
 
       # Step 4: Build and Test using Fastlane
       - name: Run Fastlane Build
