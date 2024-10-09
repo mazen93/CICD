@@ -19,17 +19,20 @@ platform :ios do
   desc "Description of what the lane does"
   lane :testFastlane do
 
-   gym(
-    workspace: "CICD.xcworkspace",
-    configuration:"Release",
-    scheme: "CICD",
-    silent: true,
-    clean: true,
-    skip_archive: true,
-    output_directory: "./build",
-    output_name: "CICD.ipa",
-    export_method: "ad-hoc"
+ 
 
-  )
+build_app(
+  workspace: "CICD.xcworkspace",
+  configuration: "Debug",
+  scheme: "CICD",
+  silent: true,
+  clean: true,
+  skip_archive: true,
+  output_directory: "./build",
+  output_name: "CICD.ipa",
+)
+
+
+
 end
 end
