@@ -29,8 +29,7 @@ build_app(
   clean: true,
   skip_archive: true,
   output_directory: "./build",
-  output_name: "CICD.ipa",
-  allowProvisioningUpdates: true
+  output_name: "CICD.ipa"
 )
 
 
