@@ -1,0 +1,40 @@
+name: iOS Build & Test with Fastlane
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: macos-latest
+
+    steps:
+      # Step 1: Checkout code from the repo
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      # Step 2: Set up Ruby (Fastlane requires Ruby)
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.0'  # Specify the Ruby version to use
+
+      # Step 3: Install Bundler and Fastlane (if using Gemfile)
+      - name: Install Bundler & Fastlane
+        run: |
+          bundle install  # Install dependencies using Bundler
+
+      # Step 4: Build and Test using Fastlane
+      - name: Run Fastlane Build
+        run: |
+          bundle exec fastlane build  # Replace 'build' with your Fastlane lane name
+
+      # Optional: Deploy step if needed (e.g., upload to TestFlight)
+      - name: Deploy to TestFlight
+        if: github.event_name == 'push'
+        run: |
+          bundle exec fastlane beta  # Replace 'beta' with your Fastlane lane name for TestFlight
